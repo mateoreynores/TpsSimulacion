@@ -20,7 +20,9 @@ def menu():
             lista = operacion.Operaciones.metodosCongruentes(op)
             print(lista)
         elif op == 3:
-            pass
+            tam = int(input('Ingresar cantidad de numeros a generar: '))
+            lista = 3
+            lista = operacion.Operaciones.generarListaAleatoria(tam)
         elif op == 4:
             pass
         elif op == 5:
