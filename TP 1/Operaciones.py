@@ -1,5 +1,7 @@
+import random
 class Operaciones:
     @staticmethod
+    
     def metodosCongruentes(nroOp):
         x0 = int(input("Ingrese el valor de la semilla (debe ser un nro impar): "))
         while x0 % 2 == 0:
@@ -54,3 +56,18 @@ class Operaciones:
     def mostrarLista(lista, desde):
         for i in range(desde, 20):
             print(lista)
+
+    def testChiCuadrado():
+        pass
+    
+    @staticmethod
+    def generarListaAleatoria(tam):
+        lista = []
+        sem = int(input("Ingresar semilla: "))
+        random.seed(sem)
+        
+        for i in range(tam):
+            lista.append(random.random()) 
+        
+        return lista
+
