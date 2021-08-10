@@ -32,11 +32,14 @@ class Operaciones:
 
         return lista
 
-    @staticmethod
-    def menuMostrarLista(lista):
-
+def menuMostrarLista(lista):
+        desde = 0
+        hasta = 2
+        mostrarLista(lista, desde, hasta)
         men = True
         while men:
+            desde += 2
+            hasta += 2
             print("1. Dejar de listar. \n"
                   "2. Continuar con los proximos 20. \n"
                   "3. Listar hasta el final. \n"
@@ -46,28 +49,43 @@ class Operaciones:
             if op == 1:
                 men = False
             elif op == 2:
-                pass
+                mostrarLista(lista, desde, hasta)
             elif op == 3:
-                pass
+                mostrarLista(lista, desde, len(lista))
             elif op == 4:
-                pass
+                des = int(input("Ingrese desde donde quiere mostrar: "))
+                hast = int(input("Ingrese hasta donde quiere mostrar: "))
+                while hast <= des or hast > len(lista):
+                    hast = int(input("Ingrese hasta donde quiere mostrar(debe ser mayor a Desde): "))
+                mostrarLista(lista, des, hast+1)
 
-    @staticmethod
-    def mostrarLista(lista, desde):
+
+
+def mostrarLista(lista, desde, hasta):
+        #va a ir mostrando "desde" hasta el tamaño de la lista y de a 20
+        try:
+            for i in range(desde, hasta):
+                print(lista[i])
+        except IndexError:
+            print("No hay más números para mostrar")
+
+
+
+def mostrarLista(lista, desde):
         for i in range(desde, 20):
             print(lista)
 
-    def testChiCuadrado():
+def testChiCuadrado():
         pass
-    
-    @staticmethod
-    def generarListaAleatoria(tam):
-        lista = []
-        sem = int(input("Ingresar semilla: "))
-        random.seed(sem)
         
-        for i in range(tam):
-            lista.append(random.random()) 
-        
-        return lista
+ 
+def generarListaAleatoria(tam):
+    lista = []
+    sem = int(input("Ingresar semilla: "))
+    random.seed(sem)
+            
+    for i in range(tam):
+        lista.append(random.random()) 
+            
+    return lista
 
